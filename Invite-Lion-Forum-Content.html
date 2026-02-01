@@ -1,0 +1,405 @@
+<!--
+  THE LION FORUM - Invite Content
+  ================================
+  
+  This is the CONTENT file for the Tito IO invite page.
+  This content gets injected into the <slot></slot> in the Template file.
+  
+  Buttons:
+  - "Register to Attend" (primary action)
+  - "Decline Invitation" (secondary action via not_attending_button)
+-->
+
+<!-- 1. Hero Section -->
+<section class="min-h-screen flex flex-col pt-8 px-8 md:px-16 border-b-2 border-navy relative">
+  
+  <!-- Top Bar -->
+  <div class="flex justify-between items-start mb-16 md:mb-32">
+    <div class="text-xs md:text-sm font-sans tracking-[0.2em] font-medium text-navy/80 uppercase animate-fade-in-up delay-500">
+      <span class="mt-2 md:mt-0">Established 2022</span>
+    </div>
+  </div>
+
+  <!-- Center Branding -->
+  <div class="flex-grow flex flex-col justify-center items-center text-center pb-32">
+    <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-navy leading-none tracking-tighter mb-8 animate-curtain">
+      LION FORUM
+    </h1>
+    
+    <!-- The Horizon Line -->
+    <div class="w-1/2 h-[2px] bg-navy mb-8 origin-center animate-expand-line"></div>
+    
+    <p class="font-serif text-xl md:text-2xl tracking-widest text-navy font-bold uppercase mb-8 animate-fade-in-up delay-1200 opacity-0" style="animation-fill-mode: forwards;">
+      The Best and Brightest in Tech and Policy
+    </p>
+
+    <p class="font-sans text-sm md:text-base text-navy/90 font-medium tracking-[0.2em] uppercase border-y border-navy/20 py-2 px-8 animate-fade-in-up delay-1400 opacity-0" style="animation-fill-mode: forwards;">
+      June 16th & 17th • Hyannis Port, MA
+    </p>
+  </div>
+
+  <!-- Register Button -->
+  <div class="absolute bottom-12 right-12 md:right-16 animate-fade-in-up delay-2000 opacity-0" style="animation-fill-mode: forwards;">
+    {% form "paid_invitation" %}
+      {% submit_button "Register to Attend", class: "btn btn-primary", turbo_submits_with: "<i class='fa-solid fa-spinner fa-spin'></i>" %}
+    {% endform %}
+    {% not_attending_button "Decline Invitation", class: "btn btn-secondary" %}
+  </div>
+</section>
+
+
+<!-- 2. Thesis Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 border-b-2 border-navy">
+  <div class="h-[60vh] md:h-auto border-b-2 md:border-b-0 md:border-r-2 border-navy relative overflow-hidden group cursor-crosshair">
+    <!-- Base Image - Grayscale by default -->
+    <img 
+      src="https://CKCommish.github.io/lion-forum-assets/lighthouse.png" 
+      alt="Hyannis Port Lighthouse" 
+      class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+    />
+    
+    <!-- Lighthouse Light Glow Effect -->
+    <div class="absolute top-[15%] right-[35%] w-96 h-96 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,223,150,0.6)_0%,rgba(255,200,100,0.3)_20%,rgba(255,180,50,0.1)_40%,transparent_70%)] blur-sm"></div>
+    </div>
+    
+    <!-- Blueprint Grid Overlay -->
+    <div class="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(rgba(0,31,63,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,31,63,0.1)_1px,transparent_1px)] bg-[size:40px_40px]">
+      <div class="absolute inset-0 bg-navy/5 mix-blend-multiply"></div>
+      
+      <!-- Technical Markers -->
+      <div class="absolute top-8 left-8 flex flex-col gap-1">
+        <span class="font-mono text-[10px] text-navy font-bold tracking-widest bg-vellum/80 px-2 py-1">SECTOR: HYANNIS</span>
+        <span class="font-mono text-[10px] text-navy font-bold tracking-widest bg-vellum/80 px-2 py-1">LAT: 41.635° N</span>
+      </div>
+
+      <div class="absolute bottom-8 right-8 text-right">
+        <span class="font-mono text-[10px] text-navy font-bold tracking-widest bg-vellum/80 px-2 py-1 block">CAPACITY: 200</span>
+      </div>
+      
+      <!-- Center Crosshair -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-navy/30 rounded-full flex items-center justify-center scale-90 group-hover:scale-100 transition-transform duration-700">
+        <div class="w-[1px] h-full bg-navy/30"></div>
+        <div class="h-[1px] w-full bg-navy/30 absolute"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="p-12 md:p-24 flex flex-col justify-center bg-vellum">
+    <div>
+      <h2 class="text-[1.5rem] sm:text-3xl md:text-4xl font-serif mb-12 text-navy leading-tight">The Next American Century</h2>
+      <div class="prose prose-lg text-navy/90 font-serif leading-relaxed">
+        <p class="first-letter-style">The American Dream is a promise that if you work hard, your children will achieve a better, richer, happier life. Now, that promise is at risk. We rank 49th in health outcomes. Our children's math and reading scores are at a 30-year low. AI will upend the future of work.</p>
+        <p class="mt-6">At the Lion Forum, the nation's innovators, CEOs and Members of Congress gather at the historic Kennedy Compound for two days of discussion and debate. The purpose of the Lion Forum is to chart a path for America's top founders and most influential public officials to work together in transforming health, education and jobs for families across the country.</p>
+        <p class="mt-6 font-bold">Join us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3. Stats Section -->
+<section class="py-24 px-8 md:px-16 border-b-2 border-navy bg-slate/10">
+  <div class="mb-16 flex justify-between items-end border-b border-navy/20 pb-4">
+    <h3 class="font-sans text-sm tracking-widest uppercase">The Forum</h3>
+    <span class="font-mono text-xs">By the Numbers</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Stat Card 1 -->
+    <div 
+      onclick="toggleStat(0)"
+      class="bg-vellum border border-navy/20 p-12 min-h-[400px] flex flex-col justify-between hover:shadow-[8px_8px_0px_0px_rgba(0,31,63,1)] transition-shadow duration-300 cursor-pointer"
+    >
+      <div class="flex justify-between items-start">
+        <div class="w-8 h-8 border border-navy/30 rounded-full flex items-center justify-center font-mono text-xs">1</div>
+        <div class="w-6 h-6 flex items-center justify-center text-navy/40">
+          <span class="text-2xl font-light stat-icon" id="stat-icon-0">+</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-serif text-6xl md:text-7xl font-bold text-navy mb-4 tracking-tighter">200</h4>
+        <div class="h-[2px] w-12 bg-navy mb-4"></div>
+        <p class="font-sans font-bold text-xl uppercase tracking-wide">Delegates</p>
+        <p class="font-mono text-xs mt-2 text-navy/60 uppercase">Leaders in Tech & Policy</p>
+        <div class="stat-expanded" id="stat-expanded-0">
+          <p class="font-serif text-base mt-6 pt-6 border-t border-navy/20 text-navy/80 leading-relaxed">
+            Fortune 500 CEOs, Members of Congress, and the most consequential founders and investors from across the nation gather to shape the future of American life. Each delegate is selected for their track record of leadership and commitment to the future of the American Dream.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Card 2 -->
+    <div 
+      onclick="toggleStat(1)"
+      class="bg-vellum border border-navy/20 p-12 min-h-[400px] flex flex-col justify-between hover:shadow-[8px_8px_0px_0px_rgba(0,31,63,1)] transition-shadow duration-300 cursor-pointer"
+    >
+      <div class="flex justify-between items-start">
+        <div class="w-8 h-8 border border-navy/30 rounded-full flex items-center justify-center font-mono text-xs">2</div>
+        <div class="w-6 h-6 flex items-center justify-center text-navy/40">
+          <span class="text-2xl font-light stat-icon" id="stat-icon-1">+</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-serif text-6xl md:text-7xl font-bold text-navy mb-4 tracking-tighter">2</h4>
+        <div class="h-[2px] w-12 bg-navy mb-4"></div>
+        <p class="font-sans font-bold text-xl uppercase tracking-wide">Days</p>
+        <p class="font-mono text-xs mt-2 text-navy/60 uppercase">June 16-17, 2026</p>
+        <div class="stat-expanded" id="stat-expanded-1">
+          <p class="font-serif text-base mt-6 pt-6 border-t border-navy/20 text-navy/80 leading-relaxed">
+            Two intensive days of keynotes, debates, working sessions, and networking at the historic Kennedy Compound. From opening remarks to the closing dinner, every moment is designed to foster meaningful dialogue, public-private partnership, and action.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Card 3 -->
+    <div 
+      onclick="toggleStat(2)"
+      class="bg-vellum border border-navy/20 p-12 min-h-[400px] flex flex-col justify-between hover:shadow-[8px_8px_0px_0px_rgba(0,31,63,1)] transition-shadow duration-300 cursor-pointer"
+    >
+      <div class="flex justify-between items-start">
+        <div class="w-8 h-8 border border-navy/30 rounded-full flex items-center justify-center font-mono text-xs">3</div>
+        <div class="w-6 h-6 flex items-center justify-center text-navy/40">
+          <span class="text-2xl font-light stat-icon" id="stat-icon-2">+</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-serif text-6xl md:text-7xl font-bold text-navy mb-4 tracking-tighter">1</h4>
+        <div class="h-[2px] w-12 bg-navy mb-4"></div>
+        <p class="font-sans font-bold text-xl uppercase tracking-wide">Mission</p>
+        <p class="font-mono text-xs mt-2 text-navy/60 uppercase">The American Dream</p>
+        <div class="stat-expanded" id="stat-expanded-2">
+          <p class="font-serif text-base mt-6 pt-6 border-t border-navy/20 text-navy/80 leading-relaxed">
+            Our singular focus: ensuring every American family has access to the American Dream. We believe that when innovators and policymakers work together, America can lead the way in delivering exceptional healthcare, personalized education, and the jobs of tomorrow.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 4. Schedule Section -->
+<section class="py-24 px-8 md:px-16 border-b-2 border-navy">
+  <div class="max-w-4xl mx-auto">
+    <h3 class="text-center font-serif text-3xl mb-16">The Forum Schedule</h3>
+
+    <div class="space-y-16">
+      
+      <!-- Day 1 -->
+      <div>
+        <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">
+          Tuesday, June 16th
+        </h4>
+        
+        <div class="space-y-0 border-l-2 border-navy ml-4 md:ml-0">
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">11:00</span>
+              <span class="font-serif text-xl md:text-2xl">Registration and Forum Begins</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Opening Keynotes</span>
+          </div>
+          
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
+              <span class="font-serif text-xl md:text-2xl">Dinner</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">The Kennedy Compound</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div>
+        <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">
+          Wednesday, June 17th
+        </h4>
+        
+        <div class="space-y-0 border-l-2 border-navy ml-4 md:ml-0">
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">09:00</span>
+              <span class="font-serif text-xl md:text-2xl">Forum Continues</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Debates and Discussions</span>
+          </div>
+          
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">12:00</span>
+              <span class="font-serif text-xl md:text-2xl">Working Lunch</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Sector Specific Breakouts</span>
+          </div>
+          
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">16:00</span>
+              <span class="font-serif text-xl md:text-2xl">Sailing</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Hyannis Harbor</span>
+          </div>
+          
+          <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
+            <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+              <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
+              <span class="font-serif text-xl md:text-2xl">Closing Dinner & Entertainment</span>
+            </div>
+            <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">President Kennedy's Home</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 5. Featured Sessions Section -->
+<section class="py-24 px-8 md:px-16 border-b-2 border-navy bg-vellum">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16 flex justify-between items-end border-b border-navy/20 pb-4">
+      <h3 class="font-sans text-sm tracking-widest uppercase">Highlights from Lion Forum 2025</h3>
+      <span class="font-mono text-xs">Featured Sessions</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Video Card 1 -->
+      <a href="https://youtu.be/u_zMDzmK9ig" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="relative overflow-hidden mb-4">
+          <img 
+            src="https://img.youtube.com/vi/u_zMDzmK9ig/maxresdefault.jpg" 
+            alt="America's Mental Health Crisis" 
+            class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+          <!-- Play Button Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video Card 2 -->
+      <a href="https://youtu.be/Qk27n4GFcRw" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="relative overflow-hidden mb-4">
+          <img 
+            src="https://img.youtube.com/vi/Qk27n4GFcRw/maxresdefault.jpg" 
+            alt="AI is for Healthcare" 
+            class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+          <!-- Play Button Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video Card 3 -->
+      <a href="https://youtu.be/0ElXhFE8Rnw" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="relative overflow-hidden mb-4">
+          <img 
+            src="https://img.youtube.com/vi/0ElXhFE8Rnw/maxresdefault.jpg" 
+            alt="Can Congress Fix Healthcare?" 
+            class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+          <!-- Play Button Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Our Partners Section -->
+<section class="py-24 px-8 md:px-16 border-b-2 border-navy bg-vellum">
+  <div class="max-w-6xl mx-auto text-center">
+    <h3 class="font-sans text-sm tracking-widest uppercase mb-16 text-navy/60">
+      Our Partners
+    </h3>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
+      <a href="https://www.abridge.com/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/abridge.png" alt="Abridge" class="max-w-full max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+      <a href="https://www.camber.health/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/camber-color.png" alt="Camber" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+      <div class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/igrow.png" alt="iGrow" class="max-w-full max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </div>
+      <a href="https://jpkf.org/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/jpkf.png" alt="Joseph P. Kennedy Jr. Foundation" class="max-w-full max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+      <a href="https://www.k-ventures.co/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/k-ventures.png" alt="K. Ventures" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+      <a href="https://www.thekennedyforum.org/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/tkf.png" alt="The Kennedy Forum" class="max-w-full max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+      <a href="https://www.unumgroup.com/" target="_blank" rel="noopener noreferrer" class="w-40 h-20 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105">
+        <img src="https://CKCommish.github.io/lion-forum-assets/logos/unum.png" alt="Unum Group" class="max-w-full max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Our Story Section -->
+<section class="py-24 px-8 md:px-16 border-b-2 border-navy">
+  <div class="max-w-3xl mx-auto text-center">
+    <h3 class="font-sans text-sm tracking-widest uppercase mb-12 text-navy/60">
+      Our Story
+    </h3>
+    <div class="prose prose-lg text-navy/90 font-serif leading-relaxed">
+      <p>Founded in 2022 by Christopher Kennedy McKelvy and Judd Olanoff, with support from K. Ventures and the Joseph P. Kennedy Jr. Foundation, the Lion Forum began as a small convening focused on how technology could improve outcomes for Americans in need.</p>
+      <p class="mt-6">It has since grown into a national forum uniting leaders in policy and industry to shape the future of healthcare, education, and work for all American families.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 6. CTA Section -->
+<section class="py-32 px-8 flex justify-center bg-navy text-vellum relative overflow-hidden">
+  <div class="max-w-xl w-full relative z-10">
+    <div class="text-center flex flex-col items-center">
+      {% form "paid_invitation" %}
+        {% submit_button "Register to Attend", class: "btn btn-cta", turbo_submits_with: "<i class='fa-solid fa-spinner fa-spin'></i>" %}
+      {% endform %}
+      {% not_attending_button "Decline Invitation", class: "btn btn-secondary mt-4" %}
+    </div>
+  </div>
+</section>
+
+<footer class="py-12 text-center">
+  <a href="mailto:info@lionforum.org" class="font-mono text-sm text-navy/60 hover:text-navy transition-colors duration-300 tracking-widest">info@lionforum.org</a>
+  <p class="font-mono text-xs text-navy/40 uppercase tracking-widest mt-4">© 2026 The Lion Forum. Hyannis Port, MA.</p>
+</footer>
