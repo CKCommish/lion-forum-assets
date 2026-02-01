@@ -1,0 +1,274 @@
+<!--
+  THE LION FORUM - Invite Template (Layout)
+  =========================================
+  
+  This is the TEMPLATE/LAYOUT file for the Tito IO invite page.
+  The <slot></slot> tag is where the content gets injected.
+  
+  Images are hosted on GitHub Pages at:
+  https://CKCommish.github.io/lion-forum-assets/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Lion Forum 2026</title>
+  
+  <link rel="icon" type="image/png" href="https://CKCommish.github.io/lion-forum-assets/lighthouse-icon.png" />
+  
+  <meta property="og:title" content="Lion Forum 2026" />
+  <meta property="og:description" content="Technology. Policy. Progress." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://CKCommish.github.io/lion-forum-assets/lighthouse.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lion Forum 2026" />
+  <meta name="twitter:description" content="Technology. Policy. Progress." />
+  <meta name="twitter:image" content="https://CKCommish.github.io/lion-forum-assets/lighthouse.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vellum: '#FAF8F5',
+            navy: '#001F3F',
+            slate: '#708090',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  
+  <!-- Tito Special Tags -->
+  <custom-properties />
+  <default-javascripts />
+  <fontawesome-kit />
+
+  <style>
+    /* Custom animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes curtainReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+        clip-path: inset(0 50% 0 50%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+      }
+    }
+    
+    @keyframes expandLine {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-curtain {
+      animation: curtainReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    .animate-expand-line {
+      animation: expandLine 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+      animation-delay: 0.8s;
+      transform: scaleX(0);
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-1000 { animation-delay: 1s; }
+    .delay-1200 { animation-delay: 1.2s; }
+    .delay-1400 { animation-delay: 1.4s; }
+    .delay-2000 { animation-delay: 2s; }
+    
+    /* First letter styling */
+    .first-letter-style::first-letter {
+      font-size: 5rem;
+      font-weight: bold;
+      float: left;
+      margin-right: 0.75rem;
+      margin-top: -10px;
+      line-height: 0.8;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    @media (min-width: 768px) {
+      .first-letter-style::first-letter {
+        font-size: 7rem;
+      }
+    }
+    
+    /* Selection styling */
+    ::selection {
+      background-color: #001F3F;
+      color: #FAF8F5;
+    }
+    
+    /* Stat card expanded content */
+    .stat-expanded {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    
+    .stat-expanded.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+    
+    .stat-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-icon.rotated {
+      transform: rotate(45deg);
+    }
+    
+    /* Button Styles - Works with Tito form elements */
+    .btn,
+    button.btn,
+    input[type="submit"].btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    
+    .btn-primary,
+    button.btn-primary,
+    input[type="submit"].btn-primary {
+      background-color: #001F3F;
+      color: #FAF8F5;
+    }
+    
+    .btn-primary:hover,
+    button.btn-primary:hover,
+    input[type="submit"].btn-primary:hover {
+      background-color: rgba(0, 31, 63, 0.85);
+    }
+    
+    /* Secondary/Decline button style */
+    .btn-secondary,
+    button.btn-secondary,
+    a.btn-secondary {
+      background-color: transparent;
+      color: #001F3F;
+      border: 1px solid #001F3F;
+      margin-top: 8px;
+    }
+    
+    .btn-secondary:hover,
+    button.btn-secondary:hover,
+    a.btn-secondary:hover {
+      background-color: rgba(0, 31, 63, 0.1);
+    }
+    
+    /* CTA Button - larger style for the bottom section */
+    .btn-cta,
+    button.btn-cta,
+    input[type="submit"].btn-cta {
+      width: 100%;
+      max-width: 28rem;
+      height: 5rem;
+      background-color: #FAF8F5;
+      color: #001F3F;
+    }
+    
+    .btn-cta:hover,
+    button.btn-cta:hover,
+    input[type="submit"].btn-cta:hover {
+      background-color: rgba(250, 248, 245, 0.9);
+    }
+    
+    /* Tito form styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full bg-vellum text-navy overflow-x-hidden font-sans relative">
+  
+  <!-- Global Paper Texture Overlay -->
+  <div class="fixed inset-0 z-0 pointer-events-none opacity-40 mix-blend-multiply" style="background-image: url(https://CKCommish.github.io/lion-forum-assets/paper-texture.png); background-size: cover;"></div>
+  
+  <main class="relative z-10">
+    
+    <slot></slot>
+
+  </main>
+
+  <script>
+    let expandedStat = null;
+
+    function toggleStat(index) {
+      if (expandedStat !== null && expandedStat !== index) {
+        document.getElementById('stat-expanded-' + expandedStat).classList.remove('open');
+        document.getElementById('stat-icon-' + expandedStat).classList.remove('rotated');
+      }
+
+      const expanded = document.getElementById('stat-expanded-' + index);
+      const icon = document.getElementById('stat-icon-' + index);
+      
+      if (expanded.classList.contains('open')) {
+        expanded.classList.remove('open');
+        icon.classList.remove('rotated');
+        expandedStat = null;
+      } else {
+        expanded.classList.add('open');
+        icon.classList.add('rotated');
+        expandedStat = index;
+      }
+    }
+  </script>
+
+</body>
+</html>
