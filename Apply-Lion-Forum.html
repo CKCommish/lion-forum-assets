@@ -24,11 +24,11 @@
   <meta property="og:title" content="Lion Forum 2026" />
   <meta property="og:description" content="Technology. Policy. Progress." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://CKCommish.github.io/lion-forum-assets/lighthouse.png" />
+  <meta property="og:image" content="https://CKCommish.github.io/lion-forum-assets/lion-forum-og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lion Forum 2026" />
   <meta name="twitter:description" content="Technology. Policy. Progress." />
-  <meta name="twitter:image" content="https://CKCommish.github.io/lion-forum-assets/lighthouse.png" />
+  <meta name="twitter:image" content="https://CKCommish.github.io/lion-forum-assets/lion-forum-og.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,89 @@
   </script>
 
   <style>
+    /* Critical layout CSS - renders before Tailwind CDN loads */
+    .attendee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 0.75rem;
+      row-gap: 1.5rem;
+      align-items: center;
+      justify-items: center;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .attendee-logo {
+      width: 100%;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem;
+      overflow: hidden;
+    }
+    .attendee-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: all 0.5s;
+    }
+    .attendee-logo:hover img {
+      filter: grayscale(0%);
+    }
+    @media (min-width: 640px) {
+      .attendee-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .attendee-logo { height: 3.5rem; }
+    }
+    @media (min-width: 768px) {
+      .attendee-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 2rem;
+      }
+      .attendee-logo { height: 4rem; }
+    }
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
+    }
+    .partner-logo {
+      width: 10rem;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      overflow: hidden;
+    }
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: all 0.5s;
+    }
+    .partner-logo:hover img {
+      filter: grayscale(0%);
+    }
+    @media (min-width: 768px) {
+      .partner-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 3rem;
+      }
+      .partner-logo {
+        width: 12rem;
+        height: 6rem;
+      }
+    }
+
     /* Custom animations */
     @keyframes fadeInUp {
       from {
@@ -206,7 +289,8 @@
       <!-- Apply Button -->
       <div class="absolute bottom-12 right-12 md:right-16 animate-fade-in-up delay-2000 opacity-0" style="animation-fill-mode: forwards;">
         <a 
-          href="2026-apply"
+          href="#delegate-pass"
+          onclick="document.getElementById('delegate-pass').scrollIntoView({ behavior: 'smooth' }); return false;"
           class="group flex items-center gap-4 text-xs tracking-widest uppercase hover:text-navy/70 transition-colors cursor-pointer no-underline text-navy"
         >
           Apply to Attend
@@ -242,7 +326,7 @@
           </div>
 
           <div class="absolute bottom-8 right-8 text-right">
-            <span class="font-mono text-[10px] text-navy font-bold tracking-widest bg-vellum/80 px-2 py-1 block">CAPACITY: 200</span>
+            <span class="font-mono text-[10px] text-navy font-bold tracking-widest bg-vellum/80 px-2 py-1 block">SPEAKERS: 17</span>
           </div>
           
           <!-- Center Crosshair -->
@@ -287,9 +371,9 @@
             </div>
           </div>
           <div>
-            <h4 class="font-serif text-6xl md:text-7xl font-bold text-navy mb-4 tracking-tighter">200</h4>
+            <h4 class="font-serif text-6xl md:text-7xl font-bold text-navy mb-4 tracking-tighter">25</h4>
             <div class="h-[2px] w-12 bg-navy mb-4"></div>
-            <p class="font-sans font-bold text-xl uppercase tracking-wide">Delegates</p>
+            <p class="font-sans font-bold text-xl uppercase tracking-wide">Speakers</p>
             <p class="font-mono text-xs mt-2 text-navy/60 uppercase">Leaders in Tech & Policy</p>
             <div class="stat-expanded" id="stat-expanded-0">
               <p class="font-serif text-base mt-6 pt-6 border-t border-navy/20 text-navy/80 leading-relaxed">
@@ -369,7 +453,7 @@
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
                   <span class="font-mono text-sm text-navy/70 w-24">11:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Registration and Forum Begins</span>
+                  <span class="font-serif text-xl md:text-2xl">Welcome &amp; Registration</span>
                 </div>
                 <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Opening Keynotes</span>
               </div>
@@ -378,9 +462,9 @@
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
                   <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Dinner</span>
+                  <span class="font-serif text-xl md:text-2xl">Tour &amp; Dinner</span>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">The Kennedy Compound</span>
+                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Kennedy Compound</span>
               </div>
             </div>
           </div>
@@ -396,25 +480,25 @@
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
                   <span class="font-mono text-sm text-navy/70 w-24">09:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Forum Continues</span>
+                  <span class="font-serif text-xl md:text-2xl">Debates and Discussions</span>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Debates and Discussions</span>
+                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Forum Continues</span>
               </div>
               
               <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
                   <span class="font-mono text-sm text-navy/70 w-24">12:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Working Lunch</span>
+                  <span class="font-serif text-xl md:text-2xl">Lion Forum Caucus</span>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Sector Specific Breakouts</span>
+                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Lunch</span>
               </div>
               
               <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">16:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Sailing</span>
+                  <span class="font-mono text-sm text-navy/70 w-24">17:00</span>
+                  <span class="font-serif text-xl md:text-2xl">Hyannis Excursion</span>
                 </div>
                 <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Hyannis Harbor</span>
               </div>
@@ -422,10 +506,10 @@
               <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
                 <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
                 <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Closing Dinner & Entertainment</span>
+                  <span class="font-mono text-sm text-navy/70 w-24">19:00</span>
+                  <span class="font-serif text-xl md:text-2xl">Closing Dinner</span>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">President Kennedy's Home</span>
+                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Kennedy Compound</span>
               </div>
             </div>
           </div>
@@ -435,145 +519,513 @@
     </section>
 
 
-    <!-- 5. Featured Sessions Section -->
+    <!-- 5. Featured Speakers Section -->
     <section class="py-24 px-8 md:px-16 border-b-2 border-navy bg-vellum">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16 flex justify-between items-end border-b border-navy/20 pb-4">
-          <h3 class="font-sans text-sm tracking-widest uppercase">Highlights from Lion Forum 2025</h3>
-          <span class="font-mono text-xs">Featured Sessions</span>
+          <h3 class="font-sans text-sm tracking-widest uppercase">Featured Speakers</h3>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Video Card 1 -->
-          <a href="https://youtu.be/u_zMDzmK9ig" target="_blank" rel="noopener noreferrer" class="group block">
-            <div class="relative overflow-hidden mb-4">
-              <img 
-                src="https://img.youtube.com/vi/u_zMDzmK9ig/maxresdefault.jpg" 
-                alt="America's Mental Health Crisis" 
-                class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <!-- Play Button Overlay -->
-              <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
-                <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
+        <div class="space-y-12">
+          <!-- Row 1 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 max-w-5xl mx-auto">
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/gabe-amo.jpg" alt="Congressman Gabe Amo" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/house-seal.png" alt="U.S. House of Representatives" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Congressman Gabe Amo</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">U.S. Representative</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Rhode Island 1st District</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/elizabeth-kelly.jpg" alt="Elizabeth Kelly" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/anthropic-logo.png" alt="Anthropic" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Elizabeth Kelly</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Head of Beneficial Deployments</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Anthropic</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/james-hairston.jpg" alt="James Hairston" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/openai-logo.png" alt="OpenAI" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">James Hairston</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Global Head of Innovation Policy</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">OpenAI</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/aneesh-chopra.jpg" alt="Aneesh Chopra" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/white-house-logo.png" alt="Arcadia Institute" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Aneesh Chopra</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Former US CTO; Chair</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Arcadia Institute</p>
+            </div>
+
+          </div>
+
+          <!-- Row 2 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 max-w-5xl mx-auto">
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/tess-deblanc-knowles.jpg" alt="Tess deBlanc-Knowles" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/atlantic-council-logo.png" alt="Atlantic Council" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Tess deBlanc-Knowles</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Senior Director</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Atlantic Council</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/galym.jpg" alt="Galym Imanbayev" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/lightspeed-logo.png" alt="Lightspeed Venture Partners" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Galym Imanbayev</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Partner</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Lightspeed Venture Partners</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/emily-aaronson.jpg" alt="Emily Aaronson" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/walmart-spark-logo.png" alt="Walmart" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Emily Aaronson</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Chief Medical Officer</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Walmart</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/david-reich.jpg" alt="David L. Reich, M.D." class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/mount-sinai-logo.png" alt="Mount Sinai Health System" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">David L. Reich, M.D.</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Chief Clinical Officer</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Mount Sinai Health System</p>
+            </div>
+
+          </div>
+
+          <!-- Row 3 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 max-w-5xl mx-auto">
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/bradley-tusk.jpg" alt="Bradley Tusk" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/tusk-ventures-logo.png" alt="Tusk Ventures" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Bradley Tusk</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Founder &amp; CEO</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Tusk Ventures</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/kyla-scanlon.jpg" alt="Kyla Scanlon" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Kyla Scanlon</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Economic Commentator &amp; NYT Bestselling Author</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/andrew-sorota.jpg" alt="Andrew Sorota" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Andrew Sorota</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Head of Research</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Office of Eric Schmidt</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/conor-walsh.jpg" alt="Prof. Conor Walsh" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/harvard-logo.png" alt="Harvard Move Lab" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Prof. Conor Walsh</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Founder</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Harvard Move Lab</p>
+            </div>
+
+
+          </div>
+
+          <!-- Row 4 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 max-w-5xl mx-auto">
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/ross-harper.jpg" alt="Ross Harper" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/limbic-logo.png" alt="Limbic" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Ross Harper</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Founder</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Limbic</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/david-shor.jpg" alt="David Shor" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/blue-rose-research-logo.png" alt="Blue Rose Research" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">David Shor</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Co-Founder</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Blue Rose Research</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/joanna-drake.jpg" alt="Joanna Drake" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/magnify-ventures-logo.png" alt="Magnify Ventures" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Joanna Drake</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Co-Founder &amp; Managing Partner</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Magnify Ventures</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/frank-luntz.jpg" alt="Dr. Frank Luntz" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/west-point-logo.png" alt="West Point" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Dr. Frank Luntz</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Senior Fellow, USMA West Point; Pollster &amp; Communication Strategist</p>
+            </div>
+
+          </div>
+
+          <!-- Row 5 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 max-w-5xl mx-auto">
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/jay-inslee.jpg" alt="Governor Jay Inslee" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" style="object-position: center 25%;" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/washington-state-logo.png" alt="Washington" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Governor Jay Inslee</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">Governor</p>
+              <p class="font-sans text-xs text-navy/60 mt-1 tracking-wide uppercase">Washington</p>
+            </div>
+
+            <div class="text-center group">
+              <div class="relative w-40 h-40 mx-auto mb-5">
+                <div class="w-full h-full rounded-full overflow-hidden border-2 border-navy/10 group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/miguel-cardona.jpg" alt="Secretary Miguel Cardona" class="w-full h-full object-cover transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-12 h-12 rounded-full bg-white border-2 border-navy/10 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-navy/30 transition-[border-color] duration-300">
+                  <img src="https://CKCommish.github.io/lion-forum-assets/speakers/dept-education-logo.png" alt="U.S. Department of Education" class="w-9 h-9 object-contain transition-[filter] duration-500 grayscale group-hover:grayscale-0" />
+                </div>
+              </div>
+              <h4 class="font-serif text-lg text-navy font-semibold leading-tight">Secretary Miguel Cardona</h4>
+              <p class="font-sans text-xs text-navy/80 mt-1 italic">12th Secretary of Education</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Our Attendees Section -->
+    <section class="py-20 px-8 md:px-16 bg-vellum border-t border-navy/10">
+      <div class="max-w-6xl mx-auto text-center">
+        <h3 class="font-sans text-sm tracking-widest uppercase mb-12 text-navy/60">
+          Our Attendees
+        </h3>
+        <div class="attendee-grid">
+          <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/meta.png" alt="Meta" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/goldman-sachs.png" alt="Goldman Sachs" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.jpmorganchase.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/jpmorgan-chase.png" alt="JPMorgan Chase" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.cvshealth.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/cvs-health.png" alt="CVS Health" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.walmart.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/walmart.png" alt="Walmart" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.aetna.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/aetna.png" alt="Aetna" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/mckinsey.png" alt="McKinsey" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://a16z.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/a16z.png" alt="a16z" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.generalcatalyst.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/general-catalyst.png" alt="General Catalyst" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.unumgroup.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/unum.png" alt="Unum Group" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.venrock.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/venrock.png" alt="Venrock" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.specialolympics.org/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/special-olympics.png" alt="Special Olympics" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://lsvp.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/lightspeed.png" alt="Lightspeed" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://omidyar.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/omidyar-network.png" alt="Omidyar Network" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://milkeninstitute.org/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/milken-institute.png" alt="Milken Institute" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.arnoldventures.org/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/arnold-ventures.png" alt="Arnold Ventures" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.stanford.edu/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/stanford.png" alt="Stanford" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.abridge.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/abridge.png" alt="Abridge" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://acumen.org/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/acumen.png" alt="Acumen" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <div class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/eric-schmidt.png" alt="Eric Schmidt" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <a href="https://www.arsenalcapital.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/arsenal-capital.png" alt="Arsenal Capital" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.limbic.ai/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/limbic-ai.png" alt="Limbic AI" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://leavittpartners.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/leavitt-partners.png" alt="Leavitt Partners" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+          <a href="https://www.bayada.com/" target="_blank" rel="noopener noreferrer" class="attendee-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/attendees/bayada.png" alt="BAYADA" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delegate Pass Section -->
+    <section id="delegate-pass" class="py-24 px-8 md:px-16 border-b-2 border-navy bg-vellum">
+      <div class="max-w-3xl mx-auto flex justify-center">
+        <!-- Ticket container -->
+        <div class="relative">
+          <!-- Outer decorative border -->
+          <div class="border-[3px] border-navy p-2 bg-navy/10">
+            <!-- Main ticket card - vellum paper -->
+            <div class="px-12 py-10 md:px-20 md:py-14 relative bg-vellum">
+              <!-- Inner decorative border -->
+              <div class="absolute inset-4 md:inset-6 border-2 border-navy/30 pointer-events-none"></div>
+              
+              <!-- Content -->
+              <div class="relative z-10">
+                <!-- Header line -->
+                <div class="text-center mb-6">
+                  <span class="font-sans text-navy/60 uppercase" style="font-size: 10px; letter-spacing: 0.3em;">
+                    June 16–17, 2026 — HyannisPort, Massachusetts
+                  </span>
+                </div>
+                
+                <!-- Main title -->
+                <div class="text-center mb-6">
+                  <h3 class="font-serif text-3xl md:text-4xl font-bold text-navy tracking-wide">
+                    Lion Forum 2026
+                  </h3>
+                </div>
+                
+                <!-- Subtitle - italic -->
+                <div class="text-center mb-6">
+                  <p class="font-serif text-xl md:text-2xl text-navy/80 italic">
+                    Lion Forum Delegate Pass
+                  </p>
+                  <p class="font-sans text-xs text-navy/50 uppercase mt-2" style="letter-spacing: 0.15em;">
+                    Your Pass Includes
+                  </p>
+                </div>
+                
+                <!-- Benefits list -->
+                <div class="max-w-md mx-auto text-left space-y-2 mb-8 px-4">
+                  <p class="font-serif text-sm md:text-base text-navy/90 flex items-start gap-3">
+                    <span class="text-navy font-bold">✓</span>
+                    <span>Access to all programming and exclusive events</span>
+                  </p>
+                  <p class="font-serif text-sm md:text-base text-navy/90 flex items-start gap-3">
+                    <span class="text-navy font-bold">✓</span>
+                    <span>Membership in Lion Forum private groups</span>
+                  </p>
+                  <p class="font-serif text-sm md:text-base text-navy/90 flex items-start gap-3">
+                    <span class="text-navy font-bold">✓</span>
+                    <span>Priority access to future Lion Forum convenings</span>
+                  </p>
+                </div>
+                
+                <!-- Admit bearer text -->
+                <div class="text-center pt-6" style="border-top: 1px solid rgba(0, 31, 63, 0.2);">
+                  <p class="font-sans text-xs text-navy/70 uppercase font-bold mb-6" style="letter-spacing: 0.2em;">
+                    Admit Bearer to The Lion Forum
+                  </p>
+                  <a 
+                    href="2026-apply"
+                    class="inline-flex items-center justify-center px-12 py-3 bg-navy text-vellum hover:bg-navy/90 font-sans uppercase text-sm font-bold transition-all cursor-pointer no-underline"
+                    style="letter-spacing: 0.15em;"
+                  >
+                    Apply to Attend
+                  </a>
+                  <p class="font-mono text-navy/50 mt-4 tracking-wider uppercase" style="font-size: 10px;">Limited Availability</p>
                 </div>
               </div>
             </div>
-            <p class="font-serif text-sm text-navy/80 leading-relaxed">Congressman Seth Moulton delivers a leadership briefing on the mental health crisis—and where leaders can act now to expand access for American families.</p>
-          </a>
-
-          <!-- Video Card 2 -->
-          <a href="https://youtu.be/Qk27n4GFcRw" target="_blank" rel="noopener noreferrer" class="group block">
-            <div class="relative overflow-hidden mb-4">
-              <img 
-                src="https://img.youtube.com/vi/Qk27n4GFcRw/maxresdefault.jpg" 
-                alt="AI is for Healthcare" 
-                class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <!-- Play Button Overlay -->
-              <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
-                <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <p class="font-serif text-sm text-navy/80 leading-relaxed">Andreessen Horowitz's Julie Yoo shares a practical playbook for scaling healthcare innovation—what's working now, what buyers are adopting, and how to deploy it across the American health system.</p>
-          </a>
-
-          <!-- Video Card 3 -->
-          <a href="https://youtu.be/0ElXhFE8Rnw" target="_blank" rel="noopener noreferrer" class="group block">
-            <div class="relative overflow-hidden mb-4">
-              <img 
-                src="https://img.youtube.com/vi/0ElXhFE8Rnw/maxresdefault.jpg" 
-                alt="Can Congress Fix Healthcare?" 
-                class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <!-- Play Button Overlay -->
-              <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-navy/40 transition-all duration-300">
-                <div class="w-16 h-16 rounded-full bg-vellum/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg class="w-6 h-6 text-navy ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <p class="font-serif text-sm text-navy/80 leading-relaxed">Congressman Dan Goldman offers a clear view of where U.S. healthcare policy is heading—and what leaders can do now to make care more affordable for American families.</p>
-          </a>
-
+          </div>
         </div>
       </div>
     </section>
 
 
     <!-- Our Partners Section -->
-    <section class="py-24 px-8 md:px-16 border-b-2 border-navy bg-vellum">
+    <section class="py-24 px-8 md:px-16 bg-vellum">
       <div class="max-w-6xl mx-auto text-center">
         <h3 class="font-sans text-sm tracking-widest uppercase mb-16 text-navy/60">
           Our Partners
         </h3>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 items-center justify-items-center px-4 md:px-0">
-          <a href="https://www.abridge.com/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/abridge.png" alt="Abridge" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+        <div class="partner-grid">
+          <a href="https://www.abridge.com/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/abridge.png" alt="Abridge" />
           </a>
-          <a href="https://www.camber.health/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/camber-color.png" alt="Camber" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          <a href="https://www.camber.health/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/camber-color.png" alt="Camber" />
           </a>
-          <div class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/igrow.png" alt="iGrow" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
-          </div>
-          <a href="https://jpkf.org/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/jpkf.png" alt="Joseph P. Kennedy Jr. Foundation" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+          <a href="https://my.clevelandclinic.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/cleveland-clinic-color.png" alt="Cleveland Clinic" />
           </a>
-          <a href="https://www.k-ventures.co/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/k-ventures.png" alt="K. Ventures" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+          <a href="https://igrow.vc/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/igrow.png" alt="iGrow" />
           </a>
-          <a href="https://www.thekennedyforum.org/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/tkf.png" alt="The Kennedy Forum" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+          <a href="https://jpkf.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/jpkf.png" alt="Joseph P. Kennedy Jr. Foundation" />
           </a>
-          <a href="https://www.unumgroup.com/" target="_blank" rel="noopener noreferrer" class="w-full h-16 sm:h-16 md:w-48 md:h-24 flex items-center justify-center transition-all duration-500 group hover:scale-105 p-2">
-            <img src="https://CKCommish.github.io/lion-forum-assets/logos/unum.png" alt="Unum Group" class="max-w-[180px] max-h-[50px] sm:max-w-[140px] sm:max-h-[50px] md:max-w-full md:max-h-full object-contain mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500" />
+          <a href="https://www.k-ventures.co/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/k-ventures.png" alt="K. Ventures" />
+          </a>
+          <a href="https://lsvp.com/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/lightspeed.png" alt="Lightspeed Venture Partners" />
+          </a>
+          <a href="https://www.sedf.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/sedf.png" alt="Soros Economic Development Fund" />
+          </a>
+          <a href="https://www.thekennedyforum.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/tkf.png" alt="The Kennedy Forum" />
+          </a>
+          <a href="https://www.unumgroup.com/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/unum.png" alt="Unum Group" />
+          </a>
+          <a href="https://www.marquettehamlingroup.com/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/mhg.png" alt="Marquette Hamlin Group" />
+          </a>
+          <a href="https://internationalintrigue.io/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/intrigue.png" alt="Intrigue" />
+          </a>
+          <a href="https://arenaadvisorygroup.com/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+            <img src="https://CKCommish.github.io/lion-forum-assets/logos/arena.png" alt="Arena Advisory Group" />
           </a>
         </div>
       </div>
     </section>
-
 
     <!-- Our Story Section -->
-    <section class="py-24 px-8 md:px-16 border-b-2 border-navy">
+    <section class="py-24 px-8 md:px-16 bg-navy text-vellum">
       <div class="max-w-3xl mx-auto text-center">
-        <h3 class="font-sans text-sm tracking-widest uppercase mb-12 text-navy/60">
+        <h3 class="font-sans text-sm tracking-widest uppercase mb-12 text-vellum/60">
           Our Story
         </h3>
-        <div class="prose prose-lg text-navy/90 font-serif leading-relaxed">
+        <div class="prose prose-lg text-vellum/90 font-serif leading-relaxed">
           <p>Founded in 2022 by Christopher Kennedy McKelvy and Judd Olanoff, with support from K. Ventures and the Joseph P. Kennedy Jr. Foundation, the Lion Forum began as a small convening focused on how technology could improve outcomes for Americans in need.</p>
-          <p class="mt-6">It has since grown into a national forum uniting leaders in policy and industry to shape the future of healthcare, education, and work for all American families.</p>
+          <p class="mt-6 text-vellum/90">It has since grown into a national forum uniting leaders in policy and industry to shape the future of healthcare, education, and work for all American families.</p>
         </div>
       </div>
     </section>
 
-
-    <!-- 6. CTA Section -->
-    <section class="py-32 px-8 flex justify-center bg-navy text-vellum relative overflow-hidden">
-      <div class="max-w-xl w-full relative z-10">
-        <div class="text-center">
-          <a 
-            href="2026-apply"
-            class="inline-flex items-center justify-center w-full max-w-md h-20 mx-auto rounded-none bg-vellum text-navy hover:bg-vellum/90 font-sans tracking-[0.2em] uppercase text-sm font-bold transition-all cursor-pointer no-underline"
-          >
-            Apply to Attend
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="py-12 text-center font-mono text-xs text-navy/40 uppercase tracking-widest">
-      © 2026 The Lion Forum. Hyannis Port, MA.
+    <footer class="py-12 text-center">
+      <a href="mailto:info@lionforum.org" class="font-mono text-sm text-navy/60 hover:text-navy transition-colors duration-300 tracking-widest">info@lionforum.org</a>
+      <p class="font-mono text-xs text-navy/40 uppercase tracking-widest mt-4">© 2026 The Lion Forum. Hyannis Port, MA.</p>
     </footer>
 
   </main>
