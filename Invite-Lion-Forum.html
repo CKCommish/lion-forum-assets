@@ -498,79 +498,303 @@
         <h3 class="text-center font-serif text-3xl mb-16">The Forum Schedule</h3>
 
         <div class="space-y-16">
-          
           <!-- Day 1 -->
           <div>
-            <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">
-              Tuesday, June 16th
-            </h4>
-            
+            <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">Tuesday, June 16th</h4>
             <div class="space-y-0 border-l-2 border-navy ml-4 md:ml-0">
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">11:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Welcome &amp; Registration</span>
+              <!-- 11:00 Welcome & Registration -->
+              <div class="relative border-b border-navy/10">
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <div class="w-full pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">11:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Welcome &amp; Registration</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Opening Keynotes</span>
+                  </div>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Opening Keynotes</span>
               </div>
-              
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Tour &amp; Dinner</span>
+              <!-- 12:00 Opening Keynotes / Afternoon Session -->
+              <div class="relative border-b border-navy/10" data-bucket>
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <button type="button" data-bucket-toggle aria-expanded="false" class="w-full text-left pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-navy/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">12:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Opening Keynotes / Afternoon Session</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Opening Keynotes</span>
+                    <span data-bucket-chevron class="text-navy/40 flex-shrink-0 inline-flex transition-transform duration-200"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </button>
+                <div data-bucket-content class="hidden">
+                  <ul class="pl-8 md:pl-16 pr-4 pb-6 list-none">
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">What should American AI leadership look like?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">AI: Humanity&rsquo;s greatest risk or greatest invitation?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Can AI Save American Healthcare?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Why is my doctor using a fax machine in 2026?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">How Healthcare became a National Security threat</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">The Pitt&rsquo;s stone age vs. AI&rsquo;s utopia &mdash; which is real?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Can clean energy fuel the AI revolution?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Gen Z vs. the American Dream</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Should we give AI to 8th Graders?</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Kennedy Compound</span>
+              </div>
+              <!-- 18:00 Tour & Dinner -->
+              <div class="relative border-b border-navy/10">
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <div class="w-full pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">18:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Tour &amp; Dinner</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Kennedy Compound</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Day 2 -->
           <div>
-            <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">
-              Wednesday, June 17th
-            </h4>
-            
+            <h4 class="font-sans text-sm tracking-[0.2em] uppercase font-bold text-navy/60 mb-8 ml-4 md:ml-0">Wednesday, June 17th</h4>
             <div class="space-y-0 border-l-2 border-navy ml-4 md:ml-0">
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">09:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Debates and Discussions</span>
+              <!-- 10:00 Debates and Discussions -->
+              <div class="relative border-b border-navy/10" data-bucket>
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <button type="button" data-bucket-toggle aria-expanded="false" class="w-full text-left pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-navy/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">10:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Debates and Discussions</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Forum Continues</span>
+                    <span data-bucket-chevron class="text-navy/40 flex-shrink-0 inline-flex transition-transform duration-200"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </button>
+                <div data-bucket-content class="hidden">
+                  <ul class="pl-8 md:pl-16 pr-4 pb-6 list-none">
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">How to actually get companies to AI upskill</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Can AI improve the democratic process?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">A winning political agenda for AI</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Radical solutions for the caregiver crisis</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">How can we ensure that AI actually rearchitects systems?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Is there light at the end of the tunnel for rural healthcare?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">How Fortune 500s can help families with disabilities thrive</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Forum Continues</span>
               </div>
-              
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">12:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Lion Forum Caucus</span>
+              <!-- 13:00 Lion Forum Caucus -->
+              <div class="relative border-b border-navy/10" data-bucket>
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <button type="button" data-bucket-toggle aria-expanded="false" class="w-full text-left pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-navy/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">13:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Lion Forum Caucus</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Lunch</span>
+                    <span data-bucket-chevron class="text-navy/40 flex-shrink-0 inline-flex transition-transform duration-200"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </button>
+                <div data-bucket-content class="hidden">
+                  <ul class="pl-8 md:pl-16 pr-4 pb-6 list-none">
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Lunch with David Shor (Blue Rose Research)</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Lunch</span>
               </div>
-              
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">17:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Hyannis Excursion</span>
+              <!-- 14:00 Forum Continues -->
+              <div class="relative border-b border-navy/10" data-bucket>
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <button type="button" data-bucket-toggle aria-expanded="false" class="w-full text-left pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-navy/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">14:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Forum Continues</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Afternoon Session</span>
+                    <span data-bucket-chevron class="text-navy/40 flex-shrink-0 inline-flex transition-transform duration-200"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </button>
+                <div data-bucket-content class="hidden">
+                  <ul class="pl-8 md:pl-16 pr-4 pb-6 list-none">
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">What is Big Tech&rsquo;s role in revitalizing the American Dream?</span>
+                      </div>
+                    </li>
+                    <li class="px-3 py-2.5 bg-navy/[0.04]">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">How to have authentic leadership in the 21st century</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Hyannis Harbor</span>
               </div>
-              
-              <div class="relative pl-8 md:pl-16 py-8 border-b border-navy/10 flex flex-col md:flex-row md:items-center justify-between group hover:bg-navy/5 transition-colors">
-                <div class="absolute left-[-5px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
-                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                  <span class="font-mono text-sm text-navy/70 w-24">19:00</span>
-                  <span class="font-serif text-xl md:text-2xl">Closing Dinner</span>
+              <!-- 15:00 Breakout Sessions -->
+              <div class="relative border-b border-navy/10" data-bucket>
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <button type="button" data-bucket-toggle aria-expanded="false" class="w-full text-left pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-navy/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">15:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Breakout Sessions</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Breakouts</span>
+                    <span data-bucket-chevron class="text-navy/40 flex-shrink-0 inline-flex transition-transform duration-200"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </button>
+                <div data-bucket-content class="hidden">
+                  <ul class="pl-8 md:pl-16 pr-4 pb-6 list-none">
+                    <li class="px-3 py-2.5">
+                      <div class="flex items-start gap-3">
+                        <span class="mt-2 w-1 h-1 rounded-full bg-navy/40 flex-shrink-0"></span>
+                        <span class="font-serif text-sm md:text-base text-navy/80 leading-relaxed">Small-group conversations across the Forum&rsquo;s core themes</span>
+                      </div>
+                      <ul class="mt-2 ml-6 space-y-1.5 list-none">
+                        <li class="flex items-start gap-3">
+                          <span class="mt-2 w-1 h-1 rounded-full bg-navy/30 flex-shrink-0"></span>
+                          <span class="font-serif text-sm text-navy/70 leading-relaxed">Healthcare</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                          <span class="mt-2 w-1 h-1 rounded-full bg-navy/30 flex-shrink-0"></span>
+                          <span class="font-serif text-sm text-navy/70 leading-relaxed">National Security</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                          <span class="mt-2 w-1 h-1 rounded-full bg-navy/30 flex-shrink-0"></span>
+                          <span class="font-serif text-sm text-navy/70 leading-relaxed">AI Policy &amp; American Leadership</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                          <span class="mt-2 w-1 h-1 rounded-full bg-navy/30 flex-shrink-0"></span>
+                          <span class="font-serif text-sm text-navy/70 leading-relaxed">Education &amp; the Next Generation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                          <span class="mt-2 w-1 h-1 rounded-full bg-navy/30 flex-shrink-0"></span>
+                          <span class="font-serif text-sm text-navy/70 leading-relaxed">Future of Work</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
-                <span class="mt-2 md:mt-0 font-sans text-xs uppercase tracking-widest border border-navy/20 px-3 py-1 self-start md:self-auto">Kennedy Compound</span>
+              </div>
+              <!-- 17:00 Hyannis Excursion -->
+              <div class="relative border-b border-navy/10">
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <div class="w-full pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">17:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Hyannis Excursion</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Hyannis Harbor</span>
+                  </div>
+                </div>
+              </div>
+              <!-- 19:00 Closing Dinner -->
+              <div class="relative border-b border-navy/10">
+                <div class="absolute left-[-5px] top-8 w-[8px] h-[8px] bg-navy rounded-full outline outline-4 outline-vellum"></div>
+                <div class="w-full pl-8 md:pl-16 pr-4 py-8 flex flex-col md:flex-row md:items-center justify-between">
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                    <span class="font-mono text-sm text-navy/70 w-24">19:00</span>
+                    <span class="font-serif text-xl md:text-2xl">Closing Dinner</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-2 md:mt-0 self-start md:self-auto">
+                    <span class="font-sans text-xs uppercase tracking-widest px-3 py-1 border border-navy/20">Kennedy Compound</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="mt-16 flex flex-col items-center gap-4 text-center">
@@ -1113,5 +1337,27 @@
     }
   </script>
 
+  <script>
+  (function() {
+    document.querySelectorAll('[data-bucket-toggle]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var bucket = btn.closest('[data-bucket]');
+        if (!bucket) return;
+        var content = bucket.querySelector('[data-bucket-content]');
+        var chevron = btn.querySelector('[data-bucket-chevron]');
+        var isOpen = content && !content.classList.contains('hidden');
+        if (isOpen) {
+          content.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          if (chevron) chevron.style.transform = 'rotate(0deg)';
+        } else {
+          if (content) content.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          if (chevron) chevron.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
